@@ -1,0 +1,17 @@
+# Allowlist: ignore everything, then publish only the site's own files.
+# To publish a new top-level file or folder, add a "!/name" line here on purpose.
+/*
+!/.gitignore
+!/.nojekyll
+!/README.md
+!/index.html
+!/404.html
+!/robots.txt
+!/sitemap.xml
+!/assets/
+!/handmade/
+!/kitchen/
+!/about/
+!/contact/
+# Un-comment when Ritu's domain is connected (see NOTES.md "Going live on her domain"):
+# !/CNAME
