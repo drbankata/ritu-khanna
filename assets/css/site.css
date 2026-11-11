@@ -549,3 +549,12 @@ body.has-obar .to-top{bottom:150px}
 @media (prefers-reduced-motion: reduce) { .made-by .mb-name, .made-by .mb-arrow { transition: none; } }
 @media (max-width: 480px) { .made-by .mb-dot { display: none; } }
 .made-by { --mb-line: rgba(248,241,234,.12); --mb-text: var(--on-dark); --mb-muted: var(--on-dark-muted); --mb-accent: var(--marigold); --mb-rest: rgba(233,162,59,.5); --mb-pre-font: var(--display); --mb-pre-style: italic; --mb-pre-size: 1.25rem; --mb-name-font: var(--script); --mb-name-weight: 400; --mb-name-size: 1.9rem; --mb-name-color: var(--marigold); --mb-sub-font: var(--sans); --mb-cred-font: var(--sans); }
+
+/* Narrow phones with large text: grid and flex columns may shrink and long words wrap, so nothing runs past the right edge
+   (studio mobile rule 1, owner's yes 2026-11-11). Zero-specificity :where() so any site rule that sets a min-width still wins. */
+@media (max-width: 480px) {
+  :where(header, main, footer) :where(*:not(img, svg, video, iframe, canvas, picture, button)) { min-width: 0; }
+  :where(main) :where(input, select, textarea) { max-width: 100%; }
+  :where(main, footer) :where(h1, h2, h3, h4, h5, h6, p, li, dd, dt, figcaption, label, blockquote, small, b, strong) { overflow-wrap: break-word; }
+  :where(main) :where(a[class*="btn"], button) { max-width: 100%; white-space: normal; }
+}
